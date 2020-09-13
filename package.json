@@ -1,13 +1,13 @@
 {
   "name": "clear-branches",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "productivity and easy way to clear your local branches",
   "main": "clearBranches.js",
   "repository": "git@github.com:jmlavoier/clear-branches.git",
   "author": "João Lavoier <joao.lavoier@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "clear": "node clearBranches.js"
+    "postinstall": "node ./clearBranches.js"
   },
   "preferGlobal": true,
   "peerDependencies": {
