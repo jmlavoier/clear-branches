@@ -5,5 +5,8 @@
   "main": "clearBranches.js",
   "repository": "git@github.com:jmlavoier/clear-branches.git",
   "author": "João Lavoier <joao.lavoier@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "clear": "node clearBranches.js"
+  }
 }
