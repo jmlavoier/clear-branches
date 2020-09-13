@@ -28,7 +28,7 @@ async function deleteBranches(branches) {
   }
 }
 
-async function lsWithGrep() {
+async function clearBranches() {
   try {
     const args = process.argv.slice(2).join('');
     const { stdout: stdoutGb } = await exec('git branch');
@@ -67,4 +67,5 @@ async function lsWithGrep() {
     console.error(err);
   }
 }
-lsWithGrep();
+
+clearBranches();
