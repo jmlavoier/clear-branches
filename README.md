@@ -1,5 +1,9 @@
-# Clear Branches
-Productivy and easy way to clear your local branches *(This library is not finished yet, it isn't working well)*
+# Clear Branches (Alpha)
+> *(This library is not finished yet, it could be not working well in some environments)*
+
+Productivy and easy way to clear your local branches 
+
+
 
 ## WIP
 - [x] Setup to run using `clear-branches` or `npx clear-branches`
