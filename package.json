@@ -8,5 +8,9 @@
   "license": "MIT",
   "scripts": {
     "clear": "node clearBranches.js"
+  },
+  "preferGlobal": true,
+  "peerDependencies": {
+    "node": "14.x"
   }
 }
