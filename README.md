@@ -2,7 +2,7 @@
 Productivy and easy way to clear your local branches *(This library is not finished yet, it isn't working well)*
 
 ## WIP
-- [ ] Setup to run using `clear-branches` or `npx clear-branches`
+- [x] Setup to run using `clear-branches` or `npx clear-branches`
 - [ ] Setup to run cross environment (unix or windows) platforms, [shelljs](https://github.com/shelljs/shelljs) could be a good solution
 - [ ] Code improvement, it's a messy today, sorry.
 - [ ] Security improvement using Deno.
