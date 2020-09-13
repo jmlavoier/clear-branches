@@ -14,20 +14,26 @@ Productivy and easy way to clear your local branches *(This library is not finis
 - Node equal or greater than `v14`
 
 #### Install and Run
+If you don't want to install globaly, you can just execute into your git project:
+
+```shell
+$ npx clear-branches
+```
+
+Or installing: 
+
 **yarn:** 
 ```shell 
 $ yarn global add clear-branches
+$ cd your-git-project/
+$ clear-branches
 ```
 
 **npm:**
 ```shell 
 $ npm i -g clear-branches
-```
-
-If you don't want to install globaly, you can just execute into your git project:
-
-```shell
-$ npx clear-branches
+$ cd your-project/
+$ clear-branches
 ```
 
 #### Usage
@@ -35,6 +41,22 @@ $ npx clear-branches
 Inside your project:
 
 ```shell
-$ cd your-project/
+$ cd your-git-project/
 $ clear-branches
 ```
+
+![all-branches](./docs/assets/all-branches.png)
+
+You will see all branches that will be deleted to confirm if everything is alright.
+It automatically ignores **master**, **develop** and **release** branches.
+
+#### Options
+
+But, if you want to ignore more banches: 
+
+```shell
+clear-branches --ignore=chore/bump-version,feat/finish-scheduling-treatment
+```
+
+![all-branches](./docs/assets/ignore-branches.png)
+
