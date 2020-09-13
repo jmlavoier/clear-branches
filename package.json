@@ -1,0 +1,9 @@
+{
+  "name": "clear-branches",
+  "version": "0.0.1",
+  "description": "productivity and easy way to clear your local branches",
+  "main": "clearBranches.js",
+  "repository": "git@github.com:jmlavoier/clear-branches.git",
+  "author": "João Lavoier <joao.lavoier@maistodos.com.br>",
+  "license": "MIT"
+}
