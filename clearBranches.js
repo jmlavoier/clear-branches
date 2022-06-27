@@ -38,7 +38,7 @@ async function clearBranches() {
     const hasBranchesToIgnore = ignore && !!ignore.length;
     const ignoreBranches = hasBranchesToIgnore ? ignore[0].split('=')[1].replace(/,/g, '|') : '';
 
-    const ignoreBranchesRegex = new RegExp(`(\\*| |master|develop|release|${ignoreBranches})`, 'g');
+    const ignoreBranchesRegex = new RegExp(`(\\*| |master|main|develop|release|${ignoreBranches})`, 'g');
 
     const branches = stdoutGb
       .split(/\n/g)

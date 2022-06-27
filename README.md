@@ -52,7 +52,7 @@ $ clear-branches
 ![all-branches](./docs/assets/all-branches.png)
 
 You will see all branches that will be deleted to confirm if everything is alright.
-It automatically ignores **master**, **develop** and **release** branches.
+It automatically ignores **master**, **main**, **develop** and **release** branches.
 
 #### Options
 
