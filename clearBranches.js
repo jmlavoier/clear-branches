@@ -33,12 +33,12 @@ async function clearBranches() {
     const args = process.argv.slice(2).join('');
     const { stdout: stdoutGb } = await exec('git branch');
 
-    const ignore = args.match(/^--ignore=(((feat|fix|refactor|chore)\/[\w-\d]+)|,){1,}/g);
+    const ignore = args.match(/^--ignore=((\/[\w-\d]+)|,){1,}/g);
 
     const hasBranchesToIgnore = ignore && !!ignore.length;
     const ignoreBranches = hasBranchesToIgnore ? ignore[0].split('=')[1].replace(/,/g, '|') : '';
 
-    const ignoreBranchesRegex = new RegExp(`(\\*| |master|develop|release|${ignoreBranches})`, 'g');
+    const ignoreBranchesRegex = new RegExp(`(\\*| |main|master|develop|release|${ignoreBranches})`, 'g');
 
     const branches = stdoutGb
       .split(/\n/g)
