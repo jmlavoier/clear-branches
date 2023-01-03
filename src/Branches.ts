@@ -19,11 +19,11 @@ export class Branches {
 
   removeBranch(branch: string | number) {
     if (typeof branch === 'string') {
-      this.#branches = this.#branches.filter((b) => b === branch);
+      this.#branches = this.#branches.filter((b) => b !== branch);
     }
     
     if (typeof branch === 'number') {
-      this.#branches = this.#branches.filter((_, i) => i === branch);
+      this.#branches = this.#branches.filter((_, i) => i !== branch);
     }
   }
 }
