@@ -25,7 +25,10 @@ export function clearBranches (options: Options): void {
 
     const validBranches = (ignorePattern === undefined)
       ? clearBranches.getOnlyValidBranches().all
-      : clearBranches.getOnlyValidBranches().getWithIgnoredPattern(ignorePattern).all;
+      : clearBranches
+        .getOnlyValidBranches()
+        .getWithIgnoredPattern(ignorePattern)
+        .all;
 
     if (validBranches.length === 0) {
       console.log(messages.ItsAllClear);

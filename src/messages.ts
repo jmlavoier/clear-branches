@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 export const messages = {
   ItsAllClear: '  It is all clear! There is no considered branches to delete.',
   AreYouSureYouWantToDelete: 'Are you sure you want to delete listed branches above?',
