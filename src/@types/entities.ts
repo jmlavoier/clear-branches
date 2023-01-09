@@ -50,11 +50,19 @@ export class ClearBranches {
     return branch !== '';
   }
 
-  getOnlyValidBranches (): BranchesList {
-    return this.#all.branches.filter((branch) =>
-      this.#isNotCurrent(branch) &&
-      this.#isNotEmpty(branch) &&
-      !this.ignored.includes(branch)
+  getOnlyValidBranches (): ClearBranches {
+    return new ClearBranches(
+      new Branches(this.#all.branches.filter((branch) =>
+        this.#isNotCurrent(branch) &&
+        this.#isNotEmpty(branch) &&
+        !this.ignored.includes(branch)
+      ))
     );
+  }
+
+  getWithIgnoredPattern (pattern: RegExp): ClearBranches {
+    return new ClearBranches(
+      new Branches(this.#all.branches.filter((branch) => !pattern.test(branch)))
+    )
   }
 }
