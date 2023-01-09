@@ -29,12 +29,14 @@ export function clearBranches (options: Options): void {
       console.log(`  ${branchName}`);
     });
 
-    prompts([{
-      type: 'confirm',
-      name: 'delete_all',
-      message: messages.AreYouSureYouWantToDelete,
-      initial: false
-    }]).then(async (response) => {
+    const requestConfirmation = async (): Promise<void> => {
+      const response = await prompts([{
+        type: 'confirm',
+        name: 'delete_all',
+        message: messages.AreYouSureYouWantToDelete,
+        initial: false
+      }]);
+
       if (response.delete_all === true) {
         const deletedBranches = await deleteBranches(validBranches);
 
@@ -44,8 +46,8 @@ export function clearBranches (options: Options): void {
           });
         }
       }
-    }).catch((e) => {
-      console.error(e);
-    });
+    }
+
+    void requestConfirmation();
   });
-}
+};
