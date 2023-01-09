@@ -6,15 +6,14 @@ export const messages = {
   IgnorePatternOptionHelp: 'ignore all branches that matches the regex pattern',
   InteractiveOptionHelp: 'select the branches you want to delete',
   HelpAfter: `
-    By default, clear-branches will ignore these branches.
+  By default, clear-branches will ignore these branches.
 
-    - main
-    - master
-    - release
-    - develop
+  - main
+  - master
+  - release
+  - develop
 
-    Using --consider <branch>[,<branch>], you will be able not to ignore any of these branches.
-    I.e.: clear-branches --consider main
-  `,
+  Using --consider <branch>[,<branch>], you will be able not to ignore any of these branches.
+  I.e.: clear-branches --consider main`,
   DeletedBranch: (branchName: string) => `  Deleted ${branchName}`
 };
