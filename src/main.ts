@@ -1,8 +1,9 @@
 import { Command } from 'commander';
-const program = new Command();
 
 import { clearBranches } from './clear-branches';
 import { consider, ignore, ignorePattern, interactive } from './options';
+
+const program = new Command();
 
 program
   .option('-c, --consider <values>', 'force ignored branches by default to be considered to clear', consider)
