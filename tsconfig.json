@@ -1,6 +1,6 @@
 {
   "include": ["./src/**/*"],
-  "exclude": ["./src/**/*.test.ts"],
+  "files": ["src/main.ts"],
   "compilerOptions": {
     "outDir": "./dist",
     "target": "es2016",
