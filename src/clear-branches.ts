@@ -11,7 +11,7 @@ export function clearBranches (options: Options): void {
   const git = child.spawn('git', ['branch']);
 
   const {
-    consider,
+    force,
     ignore,
     ignorePattern
   } = options;
@@ -20,7 +20,7 @@ export function clearBranches (options: Options): void {
     const dataBranches = Branches.parse(data);
     const clearBranches = new ClearBranches(dataBranches);
 
-    clearBranches.considered = consider;
+    clearBranches.considered = force;
     clearBranches.ignored = ignore;
 
     const validBranches = (ignorePattern === undefined)

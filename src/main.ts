@@ -2,20 +2,20 @@ import { Command } from 'commander';
 
 import { clearBranches } from './clear-branches';
 import { messages } from './messages';
-import { consider, ignore, ignorePattern, interactive } from './options';
+import { force, ignore, ignorePattern, interactive } from './options';
 
 const program = new Command();
 
 const {
   IgnorePatternOptionHelp,
-  ConsiderOptionHelp,
+  ForceOptionHelp,
   IgnoreOptionHelp,
   HelpAfter,
   InteractiveOptionHelp
 } = messages;
 
 program
-  .option('-c, --consider <values>', ConsiderOptionHelp, consider)
+  .option('-f, --force <values>', ForceOptionHelp, force)
   .option('--ignore <values>', IgnoreOptionHelp, ignore)
   .option('--ignore-pattern <pattern>', IgnorePatternOptionHelp, ignorePattern)
   .option('-i, interactive', InteractiveOptionHelp, interactive)
