@@ -6,7 +6,9 @@
   "repository": "git@github.com:jmlavoier/clear-branches.git",
   "author": "João Lavoier <joao.lavoier@gmail.com>",
   "license": "MIT",
-  "bin": "dist/main.js",
+  "bin": {
+    "clear-branches": "dist/main.js"
+  },
   "scripts": {
     "clear-branches": "node dist/main.js",
     "build": "tsc -p ./tsconfig-build.json",
