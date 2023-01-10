@@ -10,7 +10,6 @@ import { messages } from './messages';
 export function clearBranches (options: Options): void {
   const git = child.spawn('git', ['branch']);
 
-
   const {
     consider,
     ignore,
