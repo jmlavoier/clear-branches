@@ -36,7 +36,7 @@ export type ExecFunction = (clearBranches: ClearBranches) => ClearBranches;
 
 export interface Options {
   interactive?: boolean
-  consider?: BranchesList
+  force?: BranchesList
   ignore?: BranchesList
-  'ignore-pattern'?: string
+  ignorePattern?: RegExp
 }

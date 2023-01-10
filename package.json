@@ -10,7 +10,7 @@
   "scripts": {
     "clear-branches": "node dist/main.js",
     "build": "tsc -p ./tsconfig-build.json",
-    "dev": "tsc ./tsconfig-build.json --watch",
+    "dev": "tsc -p ./tsconfig-build.json --watch",
     "test": "jest --config=./jest.config.js",
     "test:watch": "jest --config=./jest.config.js",
     "lint": "eslint src"

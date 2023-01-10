@@ -10,14 +10,25 @@ import { messages } from './messages';
 export function clearBranches (options: Options): void {
   const git = child.spawn('git', ['branch']);
 
+  const {
+    force,
+    ignore,
+    ignorePattern
+  } = options;
+
   git.stdout.on('data', (data: Buffer) => {
     const dataBranches = Branches.parse(data);
     const clearBranches = new ClearBranches(dataBranches);
 
-    clearBranches.considered = options.consider;
-    clearBranches.ignored = options.ignore;
+    clearBranches.considered = force;
+    clearBranches.ignored = ignore;
 
-    const validBranches = clearBranches.getOnlyValidBranches();
+    const validBranches = (ignorePattern === undefined)
+      ? clearBranches.getOnlyValidBranches().all
+      : clearBranches
+        .getOnlyValidBranches()
+        .getWithIgnoredPattern(ignorePattern)
+        .all;
 
     if (validBranches.length === 0) {
       console.log(messages.ItsAllClear);

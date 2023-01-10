@@ -12,10 +12,10 @@ $ clear-branches
   Are you sure you want to delete these branches? [Y, n]
 ```
 
-## consider
+## force
 
 ```shell
-$ clear-branches -c, --consider=main,master
+$ clear-branches -c, --force main,master
 
 * feat/current
   feat/bla

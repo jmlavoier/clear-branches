@@ -1,7 +1,6 @@
-import { BranchesList } from '../@types/domains';
 
-export function ignorePattern (value: string, previous: any): BranchesList {
-  const ignoringBranches = value.split(',');
+export function ignorePattern (value: string): RegExp {
+  const pattern = new RegExp(value);
 
-  return [...ignoringBranches]
+  return pattern;
 }
