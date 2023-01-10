@@ -38,5 +38,5 @@ export interface Options {
   interactive?: boolean
   consider?: BranchesList
   ignore?: BranchesList
-  'ignore-pattern'?: string
+  ignorePattern?: RegExp
 }

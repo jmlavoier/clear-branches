@@ -2,7 +2,9 @@ import * as child from 'child_process';
 
 const removedBranches: string[] = [];
 
-export async function deleteBranches (branches: string[]): Promise<string[] | null> {
+export async function deleteBranches (
+  branches: string[]
+): Promise<string[] | null> {
   if (branches.length === 0) {
     return removedBranches;
   }

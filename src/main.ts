@@ -1,28 +1,27 @@
 import { Command } from 'commander';
 
 import { clearBranches } from './clear-branches';
+import { messages } from './messages';
 import { consider, ignore, ignorePattern, interactive } from './options';
 
 const program = new Command();
 
+const {
+  IgnorePatternOptionHelp,
+  ConsiderOptionHelp,
+  IgnoreOptionHelp,
+  HelpAfter,
+  InteractiveOptionHelp
+} = messages;
+
 program
-  .option('-c, --consider <values>', 'force ignored branches by default to be considered to clear', consider)
-  .option('--ignore <values>', 'ignore all branches separated by comma', ignore)
-  .option('--ignore-pattern <pattern>', 'ignore all branches that matches the regex pattern', ignorePattern)
-  .option('-i, interactive', 'select the branches you want to delete', interactive)
+  .option('-c, --consider <values>', ConsiderOptionHelp, consider)
+  .option('--ignore <values>', IgnoreOptionHelp, ignore)
+  .option('--ignore-pattern <pattern>', IgnorePatternOptionHelp, ignorePattern)
+  .option('-i, interactive', InteractiveOptionHelp, interactive)
   .action(clearBranches)
   .showHelpAfterError();
 
-program.addHelpText('after', `
-  By default clear-branches will ignore these branches
-  
-  - main
-  - master
-  - release
-  - develop
-
-  Using --consider <branch>[,<branch>] you can force to consider any of these branches. 
-  I.e: clear-branches --consider main
-`);
+program.addHelpText('after', HelpAfter);
 
 program.parse();

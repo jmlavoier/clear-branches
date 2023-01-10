@@ -11,7 +11,10 @@ export class ClearBranches {
     this.#all = new Branches();
 
     this.#ignored.branches = ['main', 'master', 'release', 'develop'];
-    this.#all.branches = ((branches?.branches) != null) ? [...branches?.branches] : [];
+    this.#all.branches =
+      ((branches?.branches) != null)
+        ? [...branches?.branches]
+        : [];
   }
 
   get considered (): BranchesList {
@@ -25,7 +28,9 @@ export class ClearBranches {
   }
 
   get ignored (): BranchesList {
-    return this.#ignored.branches.filter((branch) => !this.#considered.branches.includes(branch));
+    return this.#ignored.branches.filter(
+      (branch) => !this.#considered.branches.includes(branch)
+    );
   }
 
   set ignored (branches: BranchesList | undefined) {
@@ -50,11 +55,19 @@ export class ClearBranches {
     return branch !== '';
   }
 
-  getOnlyValidBranches (): BranchesList {
-    return this.#all.branches.filter((branch) =>
-      this.#isNotCurrent(branch) &&
-      this.#isNotEmpty(branch) &&
-      !this.ignored.includes(branch)
+  getOnlyValidBranches (): ClearBranches {
+    return new ClearBranches(
+      new Branches(this.#all.branches.filter((branch) =>
+        this.#isNotCurrent(branch) &&
+        this.#isNotEmpty(branch) &&
+        !this.ignored.includes(branch)
+      ))
     );
+  }
+
+  getWithIgnoredPattern (pattern: RegExp): ClearBranches {
+    return new ClearBranches(
+      new Branches(this.#all.branches.filter((branch) => !pattern.test(branch)))
+    )
   }
 }
