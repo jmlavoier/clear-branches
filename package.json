@@ -1,7 +1,7 @@
 {
   "name": "clear-branches",
   "version": "1.0.0",
-  "description": "productivity and easy way to clear your local branches",
+  "description": "easy way to clear your local branches",
   "main": "dist/clear-branches.js",
   "repository": "git@github.com:jmlavoier/clear-branches.git",
   "author": "João Lavoier <joao.lavoier@gmail.com>",
@@ -18,8 +18,9 @@
     "lint": "eslint src"
   },
   "preferGlobal": true,
-  "peerDependencies": {
-    "node": "16.x"
+  "engines" : { 
+    "npm" : ">=8.11.0 <=9.2.0",
+    "node" : ">=16.15.1 <=19.3.0"
   },
   "devDependencies": {
     "@types/jest": "^29.2.5",
