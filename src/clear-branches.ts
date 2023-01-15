@@ -58,9 +58,11 @@ export function clearBranches (options: Options): void {
         ? selectedBranches.value
         : validBranches;
 
-      electedBranches.forEach((branchName) => {
-        console.log(`  ${branchName}`);
-      });
+      if (!isInteractive) {
+        electedBranches.forEach((branchName) => {
+          console.log(`  ${branchName}`);
+        });
+      }
 
       const response = await prompts([{
         type: 'confirm',
