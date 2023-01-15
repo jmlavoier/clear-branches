@@ -28,7 +28,11 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: npm ci
+<<<<<<< HEAD
       - run: npm run build
       - run: npm publish
+=======
+      - run: npm publish --otp=037420
+>>>>>>> 0fb7425 (fix(ci): npm publish otp)
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
