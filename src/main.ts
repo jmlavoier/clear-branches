@@ -18,7 +18,7 @@ program
   .option('-f, --force <values>', ForceOptionHelp, force)
   .option('--ignore <values>', IgnoreOptionHelp, ignore)
   .option('--ignore-pattern <pattern>', IgnorePatternOptionHelp, ignorePattern)
-  .option('-i, interactive', InteractiveOptionHelp, interactive)
+  .option('-i, --interactive', InteractiveOptionHelp, interactive)
   .action(clearBranches)
   .showHelpAfterError();
 

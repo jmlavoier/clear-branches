@@ -7,6 +7,7 @@ export const messages = {
   IgnoreOptionHelp: 'ignore all branches separated by comma',
   IgnorePatternOptionHelp: 'ignore all branches that matches the regex pattern',
   InteractiveOptionHelp: 'select the branches you want to delete',
+  NoBranchesSelected: 'No branches selected to delete',
   HelpAfter: `
   By default, clear-branches will ignore these branches.
 

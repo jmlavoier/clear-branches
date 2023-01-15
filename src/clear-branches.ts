@@ -1,7 +1,7 @@
 import * as child from 'child_process';
 import prompts from 'prompts';
 
-import { Options, Branches } from './@types/domains';
+import { Options, Branches, BranchesList } from './@types/domains';
 
 import { ClearBranches } from './@types/entities';
 import { deleteBranches } from './helpers';
@@ -13,7 +13,8 @@ export function clearBranches (options: Options): void {
   const {
     force,
     ignore,
-    ignorePattern
+    ignorePattern,
+    interactive
   } = options;
 
   git.stdout.on('data', (data: Buffer) => {
@@ -22,25 +23,47 @@ export function clearBranches (options: Options): void {
 
     clearBranches.considered = force;
     clearBranches.ignored = ignore;
+    const isInteractive = interactive != null;
 
-    const validBranches = (ignorePattern === undefined)
-      ? clearBranches.getOnlyValidBranches().all
-      : clearBranches
-        .getOnlyValidBranches()
-        .getWithIgnoredPattern(ignorePattern)
+    const action = async (): Promise<void> => {
+      const validBranches = clearBranches
+        .getOnlyValidBranches(ignorePattern)
         .all;
 
-    if (validBranches.length === 0) {
-      console.log(messages.ItsAllClear);
-      git.kill();
-      return;
-    }
+      const selectedBranches = await prompts(isInteractive
+        ? [{
+            type: 'multiselect',
+            name: 'value',
+            message: 'Choose the branches you want to delete:',
+            choices: validBranches.map((branch) => ({
+              title: branch,
+              value: branch
+            }))
+          }]
+        : []);
 
-    validBranches.forEach((branchName) => {
-      console.log(`  ${branchName}`);
-    });
+      if (validBranches.length === 0) {
+        console.log(messages.ItsAllClear);
+        git.kill();
+        return;
+      }
 
-    const requestConfirmation = async (): Promise<void> => {
+      if (isInteractive && selectedBranches.value.length === 0) {
+        console.log(messages.NoBranchesSelected);
+        git.kill();
+        return;
+      }
+
+      const electedBranches: BranchesList = isInteractive
+        ? selectedBranches.value
+        : validBranches;
+
+      if (!isInteractive) {
+        electedBranches.forEach((branchName) => {
+          console.log(`  ${branchName}`);
+        });
+      }
+
       const response = await prompts([{
         type: 'confirm',
         name: 'delete_all',
@@ -49,7 +72,7 @@ export function clearBranches (options: Options): void {
       }]);
 
       if (response.delete_all === true) {
-        const deletedBranches = await deleteBranches(validBranches);
+        const deletedBranches = await deleteBranches(electedBranches);
 
         if (deletedBranches != null) {
           deletedBranches.forEach((branchName) => {
@@ -59,6 +82,6 @@ export function clearBranches (options: Options): void {
       }
     }
 
-    void requestConfirmation();
+    void action();
   });
 };

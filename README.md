@@ -142,30 +142,24 @@ I.e.:
 
 ```shell
 $ clear-branches -i --force=release,main
-
-  Choose the branches you want to delete:
-
-  [x] feat/component
-  [ ] feat/feature
-  [ ] fix/functions
-  [ ] release
-  [ ] main
+? Choose the branches you want to delete: ›
+Instructions:
+    ↑/↓: Highlight option
+    ←/→/[space]: Toggle selection
+    a: Toggle all
+    enter/return: Complete answer
+◉   feat/component
+◉   feat/feature
+◯   fix/functions
+◯   release
+◯   main
 ```
 
 After pressing Enter:
 
 ```shell
 $ clear-branches -i --force=release,main
-
-  Choose the branches you want to delete:
-
-  [x] feat/component
-  [ ] feat/feature
-  [ ] fix/functions
-  [ ] release
-  [ ] main
-
-  feat/component
+✔ Choose the branches you want to delete: › feat/component, feat/feature
 ? Are you sure you want to delete listed branches above? › (y/N)
 ```
 
