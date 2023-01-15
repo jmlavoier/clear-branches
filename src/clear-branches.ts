@@ -48,7 +48,7 @@ export function clearBranches (options: Options): void {
         return;
       }
 
-      if (validBranches.length > 0 && selectedBranches.value.length === 0) {
+      if (isInteractive && selectedBranches.value.length === 0) {
         console.log(messages.NoBranchesSelected);
         git.kill();
         return;
