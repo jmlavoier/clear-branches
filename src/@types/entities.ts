@@ -55,19 +55,27 @@ export class ClearBranches {
     return branch !== '';
   }
 
-  getOnlyValidBranches (): ClearBranches {
+  getOnlyValidBranches (pattern: RegExp | undefined): ClearBranches {
     return new ClearBranches(
       new Branches(this.#all.branches.filter((branch) =>
         this.#isNotCurrent(branch) &&
         this.#isNotEmpty(branch) &&
         !this.ignored.includes(branch)
       ))
-    );
+    ).getWithIgnoredPattern(pattern)
   }
 
-  getWithIgnoredPattern (pattern: RegExp): ClearBranches {
+  getWithIgnoredPattern (pattern: RegExp | undefined): ClearBranches {
+    if (pattern != null) {
+      return new ClearBranches(
+        new Branches(
+          this.#all.branches.filter((branch) => !pattern.test(branch))
+        )
+      )
+    }
+
     return new ClearBranches(
-      new Branches(this.#all.branches.filter((branch) => !pattern.test(branch)))
+      new Branches(this.#all.branches)
     )
   }
 }
