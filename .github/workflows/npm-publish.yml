@@ -30,6 +30,7 @@ jobs:
       - run: npm ci
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       - run: npm run build
       - run: npm publish
 =======
@@ -38,5 +39,8 @@ jobs:
 =======
       - run: npm publish -- --otp=037420
 >>>>>>> 3850cff (fix(ci): npm publish otp)
+=======
+      - run: npm publish
+>>>>>>> 1fd66bb (fix(ci): npm publish otp)
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
