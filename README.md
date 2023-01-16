@@ -25,7 +25,7 @@ Recommended node version equal to or greater than `v16`
 You don't need to install it globally, if the idea is to use it sometimes, you can just execute it into your git project, so that you will execute the latest stable version.
 
 ```shell
-$ npx clear-branches
+$ npx clear-branches@latest
 ```
 
 Or install it on your machine:
@@ -40,18 +40,6 @@ $ yarn global add clear-branches
 
 ```shell
 $ npm i -g clear-branches
-```
-
-If you're using nvm to manage node versions, pay attention to the node version you're using to create the alias in your bash profile:
-
-```shell
-alias clear-branches="node ~/.nvm/versions/node/v19.3.0/lib/node_modules/clear-branches"
-```
-
-Creating a dynamic alias that will execute from the current node version forces the user to be in the same version that **clear-branches** was installed.
-
-```shell
-alias clear-branches="node $(npm root --global)/clear-branches"
 ```
 
 **output**
@@ -91,6 +79,8 @@ By default, **clear-branches** ignores these branches.
   develop
 ```
 
+_\*The current branch is ignored and is not possible to force delete it_
+
 Using `clear-branches --force=<branch>[,<branch>],` you will be able not to ignore any of these branches.
 
 I.e.:
@@ -118,7 +108,7 @@ $ clear-branches --ignores=feat/component,feat/feature
 
 _In this example, `feat/component` and `feat/feature` won't be deleted._
 
-### clear-branches --ignore-pattern=<pattern>
+### clear-branches --ignore-pattern=\<pattern>
 
 It ignores all branches that match a regex.
 
