@@ -41,7 +41,7 @@
     "typescript": "*"
   },
   "dependencies": {
-    "commander": "^9.4.1",
+    "commander": "^10.0.0",
     "prompts": "^2.4.2"
   }
 }
