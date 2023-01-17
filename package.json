@@ -1,6 +1,6 @@
 {
   "name": "clear-branches",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "easy way to clear your local branches",
   "main": "dist/clear-branches.js",
   "repository": "git@github.com:jmlavoier/clear-branches.git",
@@ -41,7 +41,7 @@
     "typescript": "*"
   },
   "dependencies": {
-    "commander": "^9.4.1",
+    "commander": "^10.0.0",
     "prompts": "^2.4.2"
   }
 }
